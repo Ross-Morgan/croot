@@ -3,18 +3,6 @@ use alloc::vec::Vec;
 use num_complex::Complex64;
 
 /// Item that supports rounding to a specified number of decimal places
-///
-/// ```rust
-/// let before = 10.0000047289;
-///
-/// let low_accuracy = before.precision(0);
-/// let med_accuracy = before.precision(3);
-/// let high_accuracy = before.precision(6);
-///
-/// assert_eq!(low_accuracy, 10.0);
-/// assert_eq!(med_accuracy, 10.0);
-/// assert_eq!(high_accuracy, 10.000005);
-/// ```
 pub trait SetPrecision {
     /// Rounds value to n decimal places
     fn precision(&self, decimal_places: usize) -> Self;

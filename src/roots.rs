@@ -3,7 +3,7 @@ use core::f64::consts::PI;
 
 use num_complex::Complex64;
 
-/// Gives all real and complex roots of any given value
+/// Returns nth-roots of n
 pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
     (0..nth_root).map(|idx| {
         let theta = 2.0 * (idx as f64) / (nth_root as f64) * PI;
@@ -11,6 +11,7 @@ pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
     }).collect()
 }
 
+/// Returns the nth-roots of 1
 pub fn roots_of_unity(nth_root: usize) -> Vec<Complex64> {
     root(1.0, nth_root)
 }

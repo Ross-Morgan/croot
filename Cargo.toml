@@ -1,7 +1,12 @@
 [package]
 name = "croot"
+description = "A crate for finding real and complex roots"
 version = "0.1.0"
 edition = "2021"
+license = "BSD-3-Clause"
+repository = "https://github.com/Ross-Morgan/croot/"
+readme = "README.md"
+keywords = ["complex", "numbers", "root", "roots", "math"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

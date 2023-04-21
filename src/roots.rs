@@ -15,11 +15,20 @@ pub fn roots_of_unity(nth_root: usize) -> Vec<Complex64> {
     root(1.0, nth_root)
 }
 
+/// Returns the principal root of n
+///
+/// The principal root is that with the largest real component
 pub fn principal_root(n: f64, nth_root: usize) -> Complex64 {
     root(n, nth_root)
         .into_iter()
-        .max_by(|lhs, rhs| lhs.re.total_cmp(&rhs.re))
-        .expect("No roots were returned")
+        .reduce(|lhs, rhs| {
+            if lhs.re >= rhs.re {
+                lhs
+            } else {
+                rhs
+            }
+        })
+        .unwrap_or_default()
 }
 
 pub mod prelude {

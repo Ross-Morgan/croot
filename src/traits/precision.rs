@@ -12,7 +12,7 @@ impl SetPrecision for Vec<Complex64> {
     fn precision(&self, decimal_places: usize) -> Self {
         self.iter()
             .map(|c| c.precision(decimal_places))
-            .collect::<_>()
+            .collect()
     }
 }
 

@@ -8,6 +8,6 @@ pub mod traits;
 pub mod prelude {
     use super::*;
 
-    pub use roots::{roots_of, roots_of_unity};
+    pub use roots::prelude::*;
     pub use traits::prelude::*;
 }

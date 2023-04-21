@@ -25,6 +25,12 @@ impl SetPrecision for Complex64 {
     }
 }
 
+impl SetPrecision for f64 {
+    fn precision(&self, decimal_places: usize) -> Self {
+        round(*self, decimal_places as i32)
+    }
+}
+
 macro_rules! impl_set_precision_primatives {
     ($($v:ty),+$(,)?) => {
         $(

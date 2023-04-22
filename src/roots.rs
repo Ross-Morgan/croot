@@ -17,6 +17,7 @@ pub fn real_root(n: f64, nth_root: usize) -> f64 {
 ///
 /// ```
 /// # use num_complex::Complex64;
+/// # use croot::prelude::*;
 ///
 /// // Find roots and use precision
 /// // to remove floating-point errors

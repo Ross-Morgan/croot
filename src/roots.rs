@@ -28,16 +28,21 @@ pub fn real_root(n: f64, nth_root: usize) -> f64 {
 /// assert!(roots.contains(Complex64::new(0.0, -3.0)));
 /// ```
 pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
-    if nth_root == 0 { panic!("Root cannot be zero"); }
+    if nth_root == 0 {
+        panic!("Root cannot be zero");
+    }
 
     // Part to add to theta for negative roots
     let add_part = (1.0 - n.signum()) / 2.0;
-    let real = real_root(n, nth_root) * n.signum();
+    let real = real_root(n, nth_root);
 
-    (0..nth_root).map(|idx| {
-        let theta = 2.0 * (idx as f64 + add_part) / (nth_root as f64) * PI;
-        Complex64::from_polar(real, theta)
-    }).collect()
+    (0..nth_root)
+        .map(|idx| {
+            let theta = (2.0 * (idx as f64) + add_part) / (nth_root as f64) * PI;
+
+            Complex64::cis(theta) * real
+        })
+        .collect()
 }
 
 /// Returns the nth-roots of 1
@@ -85,5 +90,5 @@ fn round(to_round: f64, precision: i32) -> f64 {
 }
 
 pub mod prelude {
-    pub use super::{principal_root, root, roots_of_unity, real_root};
+    pub use super::{principal_root, real_root, root, roots_of_unity};
 }

@@ -23,10 +23,10 @@ pub fn real_root(n: f64, nth_root: usize) -> f64 {
 /// // to remove floating-point errors
 /// let roots = root(81.0, 4).precision(10);
 ///
-/// assert!(roots.contains(Complex64::new(3.0, 0.0)));
-/// assert!(roots.contains(Complex64::new(0.0, 3.0)));
-/// assert!(roots.contains(Complex64::new(-3.0, 0.0)));
-/// assert!(roots.contains(Complex64::new(0.0, -3.0)));
+/// assert!(roots.contains(&Complex64::new(3.0, 0.0)));
+/// assert!(roots.contains(&Complex64::new(0.0, 3.0)));
+/// assert!(roots.contains(&Complex64::new(-3.0, 0.0)));
+/// assert!(roots.contains(&Complex64::new(0.0, -3.0)));
 /// ```
 pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
     if nth_root == 0 {

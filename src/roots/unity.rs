@@ -1,3 +1,5 @@
+use alloc::vec::Vec;
+
 use num_complex::Complex64;
 
 use super::roots::root;

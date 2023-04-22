@@ -3,7 +3,7 @@ use core::f64::consts::PI;
 
 use num_complex::Complex64;
 
-use super::radius;
+use super::utils::radius;
 
 /// Returns nth-roots of n
 ///
@@ -29,6 +29,11 @@ pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
     complex_root(Complex64::new(n, 0.0), nth_root)
 }
 
+
+/// Returns nth-roots of c
+///
+/// # Panics
+/// Panics if `nth_root == 0`
 pub fn complex_root(c: Complex64, nth_root: usize) -> Vec<Complex64> {
     if nth_root == 0 {
         panic!("Root cannot be zero");
@@ -40,8 +45,6 @@ pub fn complex_root(c: Complex64, nth_root: usize) -> Vec<Complex64> {
     (0..nth_root)
         .map(|idx| {
             let n_theta = principal_theta + (2.0 * PI * (idx as f64) / (nth_root as f64));
-
-            dbg!(n_theta);
 
             Complex64::cis(n_theta) * real
         })

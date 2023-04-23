@@ -17,6 +17,8 @@ The principal 4th-root of 1 is `1`, but the others are `[-1, i, -i]`
 
 # Examples
 
+Results in examples have been rounded to 5 decimal places
+
 - [Principal Roots](#principal)
     - [Real](#real-principal)
     - [Complex](#real-complex)
@@ -35,6 +37,8 @@ The principal 4th-root of 1 is `1`, but the others are `[-1, i, -i]`
 For finding the principal root of a real value, we use `principal_root`
 
 ```rust
+principal_root(1.0, 4);  // 1.0
+principal_root(-1.0, 4); // 0.707107 + 0.707107i
 ```
 
 ### _Complex principal_
@@ -42,7 +46,11 @@ For finding the principal root of a real value, we use `principal_root`
 For finding the principal root of a complex value, we use `complex_principal_root`
 
 ```rust
+let c1 = Complex64::new(3.0, 4.0);  // 3 + 4i
+let c2 = Complex64::new(10.0, 2.0); // 10 + 2i
 
+complex_principal_root(c1, 3) // 1.62894 + 0.52017
+complex_principal_root(c1, 3) // 2.16387 + 0.14259
 ```
 
 ## All Roots

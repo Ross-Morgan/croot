@@ -31,8 +31,9 @@ pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
         // Multiply each root of unity by radius length
         roots_of_unity(nth_root).into_iter().map(|c| c * n).collect()
     } else if n < 0.0 {
-        //TODO Implement seperately?
-        complex_root(Complex64::new(n, 0.0), nth_root)
+        //
+        (0..nth_root)
+            .map(|k| 2.0 * (k as f64) * )
     } else {
         vec![0; nth_root]
     }
@@ -57,4 +58,7 @@ pub fn complex_root(c: Complex64, nth_root: usize) -> Vec<Complex64> {
             Complex64::cis(n_theta) * real
         })
         .collect()
+    
+    // let r;
+    // let arg = (c.im / c.re).atan();
 }

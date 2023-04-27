@@ -32,7 +32,7 @@ pub fn root(n: f64, nth_root: usize) -> Vec<Complex64> {
         roots_of_unity(nth_root).iter_map().map(|c| c * n).collect()
     } else if n < 0 {
         //TODO Implement seperately?
-        complex_root(Complex64::new(n, 0.0))
+        complex_root(Complex64::new(n, 0.0), nth_root)
     } else {
         vec![0; nth_root]
     }

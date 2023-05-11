@@ -3,7 +3,8 @@
 //! For finding *all* nth-roots
 
 #![no_std]
-#![forbid(unsafe_code, clippy::unwrap_used)]
+#![forbid(unsafe_code)]
+#![deny(clippy::all)]
 
 extern crate alloc;
 

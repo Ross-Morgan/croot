@@ -37,7 +37,8 @@ pub fn complex_root<T>(radicand: T, index: Complex64) -> (Complex64, Period)
 {
     let base: Complex64 = radicand.into();
 
-    let multiplicative_period = (index.conj() / index.norm_sqr()).exp();
+    //TODO ?!?!?!?!?!?
+    let multiplicative_period = (index.conj() * I * PI / index.norm_sqr()).exp();
 
     let principal = principal_root(base, index);
 

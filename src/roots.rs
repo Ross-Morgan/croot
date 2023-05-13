@@ -7,11 +7,23 @@ use crate::period::Period;
 
 const I: Complex64 = Complex64::new(0.0, 1.0);
 
+/// Returns radius / magnitude of a real or complex value
+pub fn radius<T>(c: T) -> f64
+    where Complex64: From<T>
+{
+    Complex64::from(c).norm()
+}
+
 /// Returns the root with the largest real part
 ///
 /// # Examples
 /// ```rust
+/// # use croot::prelude::*;
+/// # use num_complex::Complex64;
 ///
+/// let principal = principal_root(81.0, 4.0).approx(5);
+///
+/// assert_eq!(principal, Complex64::from(3.0));
 /// ```
 pub fn principal_root<T, U>(base: T, power: U) -> Complex64
 where

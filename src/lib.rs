@@ -17,5 +17,5 @@ pub mod prelude {
 
     pub use approx::Approx;
     pub use period::Period;
-    pub use roots::{complex_root, principal_root, root};
+    pub use roots::{complex_root, principal_root, radius, root};
 }

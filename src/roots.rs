@@ -7,14 +7,22 @@ use crate::period::Period;
 
 const I: Complex64 = Complex64::new(0.0, 1.0);
 
+/// Returns the root with the largest real part
+///
+/// # Examples
+/// ```rust
+///
+/// ```
 pub fn principal_root<T, U>(base: T, power: U) -> Complex64
-    where Complex64: From<T> + From<U>,
+where
+    Complex64: From<T> + From<U>,
 {
     Complex64::from(base).powc(Complex64::from(power).inv())
 }
 
 pub fn root<T>(radicand: T, index: usize) -> Vec<Complex64>
-    where T: Into<Complex64>
+where
+    T: Into<Complex64>,
 {
     let base: Complex64 = radicand.into();
 
@@ -25,6 +33,7 @@ pub fn root<T>(radicand: T, index: usize) -> Vec<Complex64>
 
     buf.push(principal);
 
+    //
     for _ in 1..index {
         buf.push(buf.last().expect("Buffer empty") * multiplicative_period);
     }
@@ -32,14 +41,26 @@ pub fn root<T>(radicand: T, index: usize) -> Vec<Complex64>
     buf
 }
 
+/// Returns the principal complex root
+/// and the multiplicative period of that root
+///
+/// # Examples
+/// ```rust
+/// # use croot::prelude::*;
+/// # use num_complex::Complex64;
+///
+/// let (root, period) = complex_root(10.0, Complex64::new(3.0, 4.0));
+/// let original = root.powc(Complex64::new(3.0, 4.0)).approx(5);
+///
+/// assert_eq!(original, Complex64::from(10.0));
+/// ```
 pub fn complex_root<T>(radicand: T, index: Complex64) -> (Complex64, Period)
-    where T: Into<Complex64>
+where
+    T: Into<Complex64>,
 {
     let base: Complex64 = radicand.into();
 
-    //TODO ?!?!?!?!?!?
-    let multiplicative_period = (index.conj() * I * PI / index.norm_sqr()).exp();
-
+    let multiplicative_period = (2.0 * I * PI * index.conj() / index.norm_sqr()).exp();
     let principal = principal_root(base, index);
 
     (principal, Period(multiplicative_period))

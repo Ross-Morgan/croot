@@ -19,10 +19,7 @@ impl Approx for Complex64 {
 
 impl Approx for Vec<Complex64> {
     fn approx(&self, precision: usize) -> Self {
-        self
-            .iter()
-            .map(|c| c.approx(precision))
-            .collect()
+        self.iter().map(|c| c.approx(precision)).collect()
     }
 }
 
@@ -36,10 +33,7 @@ mod tests {
 
     #[test]
     fn approx_test() {
-        let original = root(81.0, 4)
-            .get(1)
-            .copied()
-            .unwrap();
+        let original = root(81.0, 4).get(1).copied().unwrap();
 
         let rounded = original.approx(10);
 

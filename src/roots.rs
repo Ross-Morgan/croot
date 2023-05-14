@@ -20,7 +20,6 @@ pub fn radius<T>(c: T) -> f64
 /// ```rust
 /// # use croot::prelude::*;
 /// # use num_complex::Complex64;
-///
 /// let principal = principal_root(81.0, 4.0).approx(5);
 ///
 /// assert_eq!(principal, Complex64::from(3.0));
@@ -38,7 +37,6 @@ where
 /// ```rust
 /// # use croot::prelude::*;
 /// # use num_complex::Complex64;
-///
 /// let roots = root(32.0, 5);
 /// let original = roots.iter().map(|c| c.powi(5).approx(5)).collect::<Vec<_>>();
 ///
@@ -72,7 +70,6 @@ where
 /// ```rust
 /// # use croot::prelude::*;
 /// # use num_complex::Complex64;
-///
 /// let (root, period) = complex_root(10.0, Complex64::new(3.0, 4.0));
 /// let original = root.powc(Complex64::new(3.0, 4.0)).approx(5);
 ///

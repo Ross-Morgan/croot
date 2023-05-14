@@ -2,6 +2,7 @@ use alloc::vec::Vec;
 
 use num_complex::Complex64;
 
+/// Rounds item to specified precision
 pub trait Approx {
     fn approx(&self, precision: usize) -> Self;
 }

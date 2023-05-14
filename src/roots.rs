@@ -32,6 +32,18 @@ where
     Complex64::from(base).powc(Complex64::from(power).inv())
 }
 
+/// Returns all complex roots of a value
+///
+/// # Examples
+/// ```rust
+/// # use croot::prelude::*;
+/// # use num_complex::Complex64;
+///
+/// let roots = root(32.0, 5);
+/// let original = roots.iter().map(|c| c.powi(5).approx(5)).collect::<Vec<_>>();
+///
+/// assert_eq!(original.as_slice(), &[Complex64::from(32.0); 5]);
+/// ```
 pub fn root<T>(radicand: T, index: usize) -> Vec<Complex64>
 where
     T: Into<Complex64>,

@@ -20,7 +20,6 @@ use num_complex::Complex64;
 /// # use core::f64::consts::PI;
 /// # use num_complex::Complex64;
 /// # const I: Complex64 = Complex64::new(0.0, 1.0);
-///
 /// let (root, period) = complex_root(10.0, Complex64::new(3.0, 4.0));
 ///
 /// let root_1 = root.powc(Complex64::new(3.0, 4.0)).approx(5);

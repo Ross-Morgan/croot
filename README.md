@@ -6,86 +6,31 @@
 
 > A Rust library for finding complex and principal roots of real and complex values;
 
-# Context
-
-Any number, real or complex, has n nth-roots.
-
-For example, there are 4 values for the 4th-root of 1
-
-Usually, we ignore all but the principal root; that with the largest real component
-
-The principal 4th-root of 1 is `1`, but the others are `[-1, i, -i]`
-
 # Examples
 
-Results in examples have been rounded to 5 decimal places
+## Real index
 
-- [Principal Roots](#principal)
-    - [Real](#real-principal)
-    - [Complex](#real-complex)
-- [All Roots](#all-roots)
-    - [Real](#all-real)
-    - [Complex](#all-complex)
-- [Roots of Unity](#roots-of-unity)
+For finding roots where the index is a real number
 
-
-## Principal
-
-> The root with the largest real, and positive imaginary component
-
-### _Real principal_
-
-For finding the principal root of a real value, we use `principal_root`
+Returns a vector containing all roots.
 
 ```rust
-principal_root(1.0, 4);  // 1.0
-principal_root(-1.0, 4); // 0.707107 + 0.707107i
+use croot::prelude::*;
+
+let roots = root(16.0, 4).approx(10);
+
+roots; // [4, -4, 4i, -4i]
 ```
 
-### _Complex principal_
-
-For finding the principal root of a complex value, we use `complex_principal_root`
+## Complex index
 
 ```rust
-let c1 = Complex64::new(3.0, 4.0);  // 3 + 4i
-let c2 = Complex64::new(10.0, 2.0); // 10 + 2i
+use croot::prelude::*;
+use num_complex::Complex64;
 
-complex_principal_root(c1, 3) // 1.62894 + 0.52017
-complex_principal_root(c1, 3) // 2.16387 + 0.14259
-```
+let index = Complex64::new(3.0, 4.0);
+let (principal, period) = complex_root(10.0, index).approx(10);
 
-## All Roots
-
-> n values which when raised to the nth-power, give the original value
-
-### _All Real_
-
-For finding all roots of a real value, we use `root`
-
-```rust
-root(1.0, 2);  // [1.0, -1.0]
-root(1.0, 4);  // [1.0, -1.0, i, -i]
-root(81.0, 4); // [3.0, -3.0, 3i, -3i]
-```
-### _All Complex_
-
-For finding all roots of a complex number, we use `complex_root`
-
-```rust
-let c1 = Complex64::new(3.0, 4.0)  // 3 + 4i
-let c2 = Complex64::new(10.0, 2.0) // 10 + 2i
-
-complex_root(c1, 3) // [1.6289 + 0.5202i, -1.2650 + 1.1506i, -0.3640 - 1.6708i]
-complex_root(c2, 3) // [2.1639 + 0.14259, -1.2054 + 1.8027i, -0.9585 - 1.9453i]
-```
-
-## Roots of Unity
-
-The nth-roots of unity are the nth-roots of `1`
-
-The nth-roots of `1` can be found with `roots_of_unity`
-
-```rust
-roots_of_unity(3); // [1, -0.5 + 0.8660i, -0.5 - 0.8660i]
-roots_of_unity(4); // [1, i, -1, -i]
+principal; // first root
+period; // number to multiply by to get next root
 ```

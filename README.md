@@ -24,6 +24,10 @@ roots; // [4, -4, 4i, -4i]
 
 ## Complex index
 
+For finding roots where the index is a complex number
+
+Returns a complex number and a multiplicative period
+
 ```rust
 use croot::prelude::*;
 use num_complex::Complex64;

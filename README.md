@@ -1,9 +1,9 @@
 # Croot
 
-![Build](https://img.shields.io/github/actions/workflow/status/Ross-Morgan/croot/rust.yml)
-![No Std Label](https://img.shields.io/badge/no--std-yes-blue)
-![Crates.io](https://img.shields.io/crates/v/croot)
-![Crates.io (recent)](https://img.shields.io/crates/dr/croot)
+![No Std Label](https://img.shields.io/badge/no--std-yes-blue?style=for-the-badge)
+![Build](https://img.shields.io/github/actions/workflow/status/Ross-Morgan/croot/rust.yml?style=for-the-badge)
+![Crates.io](https://img.shields.io/crates/v/croot?style=for-the-badge)
+![Crates.io (recent)](https://img.shields.io/crates/dr/croot?style=for-the-badge)
 
 > A Rust library for finding complex and principal roots of real and complex values;
 

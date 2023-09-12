@@ -9,6 +9,18 @@
 
 # Examples
 
+## Principal root
+
+Can be used with either a real or complex 
+
+```rust
+use croot::prelude::*;
+
+let principal = principal_root(81.0, 4.0);
+
+assert_eq!(principal, Complex64::from(3.0));
+```
+
 ## Real index
 
 For finding roots where the index is a real number
